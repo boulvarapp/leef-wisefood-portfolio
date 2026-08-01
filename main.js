@@ -191,16 +191,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (dlHighPhoto && dlWebPhoto) {
       if (lang === 'en') {
-        dlHighPhoto.href = 'assets/downloads/high_res/motiv_01_photo_highres_EN.png';
+        dlHighPhoto.href = 'https://github.com/boulvarapp/leef-wisefood-portfolio/releases/download/v1.0-highres/motiv_01_photo_highres_EN.png';
         dlWebPhoto.href = 'assets/downloads/web_res/motiv_01_photo_web_EN.png';
       } else {
-        dlHighPhoto.href = 'assets/downloads/high_res/motiv_01_photo_highres.png';
+        dlHighPhoto.href = 'https://github.com/boulvarapp/leef-wisefood-portfolio/releases/download/v1.0-highres/motiv_01_photo_highres.png';
         dlWebPhoto.href = 'assets/downloads/web_res/motiv_01_photo_web.png';
       }
     }
 
     if (dlHighAi && dlWebAi) {
-      dlHighAi.href = 'assets/downloads/high_res/motiv_02_ai_highres.png';
+      dlHighAi.href = 'https://github.com/boulvarapp/leef-wisefood-portfolio/releases/download/v1.0-highres/motiv_02_ai_highres.png';
       dlWebAi.href = 'assets/downloads/web_res/motiv_02_ai_web.png';
     }
 
@@ -425,34 +425,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ------------------------------------------------------------------------
-    // TABLET & MOBILE TOUCH FINGER SWIPE SUPPORT
+    // TABLET & MOBILE TOUCH FINGER SWIPE SUPPORT (fixed: prevent back gesture)
     // ------------------------------------------------------------------------
     let touchStartX = 0;
     let touchStartY = 0;
     let touchStartScroll = 0;
+    let swipeDirection = null; // 'horizontal' | 'vertical' | null
 
     window.addEventListener('touchstart', (e) => {
       if (e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
         touchStartScroll = window.scrollY;
+        swipeDirection = null;
       }
     }, { passive: true });
 
+    // NON-passive so we can preventDefault() and block browser back navigation
     window.addEventListener('touchmove', (e) => {
       if (!touchStartX || e.touches.length > 1) return;
       const deltaX = touchStartX - e.touches[0].clientX;
       const deltaY = touchStartY - e.touches[0].clientY;
 
-      // If horizontal finger swipe is dominant
-      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
-        window.scrollTo(0, touchStartScroll + deltaX * 1.8);
+      // Lock direction after first significant move (8px threshold)
+      if (!swipeDirection && (Math.abs(deltaX) > 8 || Math.abs(deltaY) > 8)) {
+        swipeDirection = Math.abs(deltaX) > Math.abs(deltaY) ? 'horizontal' : 'vertical';
       }
-    }, { passive: true });
+
+      if (swipeDirection === 'horizontal') {
+        e.preventDefault(); // Block browser back/forward & vertical scroll
+        window.scrollTo(0, touchStartScroll + deltaX * 2.2);
+      }
+    }, { passive: false });
 
     window.addEventListener('touchend', () => {
+      // Snap to nearest panel on finger lift
+      if (swipeDirection === 'horizontal' && horizontalTween && horizontalTween.scrollTrigger) {
+        const st = horizontalTween.scrollTrigger;
+        const progress = (window.scrollY - st.start) / (st.end - st.start);
+        const clamped = Math.max(0, Math.min(1, progress));
+        const nearestPanel = Math.round(clamped * (panels.length - 1));
+        const targetScroll = st.start + (st.end - st.start) * (nearestPanel / (panels.length - 1));
+        gsap.to(window, { scrollTo: targetScroll, duration: 0.45, ease: 'power2.out' });
+      }
       touchStartX = 0;
       touchStartY = 0;
+      swipeDirection = null;
     }, { passive: true });
   }
 
