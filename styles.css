@@ -1,0 +1,1005 @@
+/* ==========================================================================
+   LEEF × wisefood Presentation Portfolio Stylesheet
+   Design System: CANALS 6-Panel Architecture (Flawless Lightbox & iPad Layout)
+   Palette: Wisefood Leaf Green (#477651), Red-Orange (#d86a3e), Eco Cream (#f7f5f0)
+   ========================================================================== */
+
+:root {
+  /* Official wisefood Dual Brand System */
+  --bg-cream: #f7f5f0;        /* Warm Eco Cream */
+  --bg-green: #477651;        /* Wisefood Leaf Green (Canvas Blocks) */
+  --bg-orange: #d86a3e;       /* Wisefood Red-Orange (Sidebar & Text Accents) */
+  --bg-dark: #1a1e1b;         /* Charcoal Black */
+  --bg-white: #ffffff;
+  
+  --text-dark: #1a1e1b;
+  --text-light: #ffffff;
+  --text-muted: #5a625b;
+  --text-orange: #d86a3e;     /* Red-Orange Text Color Accent */
+  --text-green: #477651;
+
+  --border-dark: rgba(26, 30, 27, 0.18);
+  --border-light: rgba(0, 0, 0, 0.1);
+  --border-white: rgba(255, 255, 255, 0.25);
+  
+  /* Typography */
+  --font-title: 'Oswald', 'Bebas Neue', sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  /* Layout */
+  --sidebar-width: 70px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Styles with Touch Swipe Support for Tablets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Top Red-Orange Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--bg-orange);
+  width: 0%;
+  z-index: 1100;
+  transition: width 0.1s ease-out;
+}
+
+/* ==========================================================================
+   FIXED LEFT VERTICAL SIDEBAR IN WISEFOOD RED-ORANGE (#d86a3e)
+   ========================================================================== */
+.left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--bg-orange); /* Wisefood Red-Orange Sidebar */
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+  z-index: 1000;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Interactive Page Nav Dots in Sidebar */
+.sidebar-page-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.page-nav-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #ffffff;
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.page-nav-dot:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.page-nav-dot.active {
+  background: #ffffff;
+  color: var(--bg-orange);
+  border-color: #ffffff;
+}
+
+.sidebar-mid {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-counter {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.lang-switcher-sidebar {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.lang-btn-sm {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lang-btn-sm.active {
+  background: #ffffff;
+  color: var(--bg-orange);
+}
+
+/* ==========================================================================
+   FULL-SCREEN FULL-BLEED HORIZONTAL GSAP TRACK WITH TABLET TOUCH SWIPE
+   ========================================================================== */
+.horizontal-outer-wrapper {
+  overflow: hidden;
+  width: 100vw;
+  touch-action: pan-x pan-y;
+}
+
+.horizontal-track {
+  display: flex;
+  width: 600vw; /* 6 Full-Screen Panels */
+  height: 100vh;
+  will-change: transform;
+  touch-action: pan-x pan-y;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+  padding-left: var(--sidebar-width);
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  gap: 0;
+  margin: 0;
+  touch-action: pan-x pan-y;
+}
+
+/* ==========================================================================
+   PANEL 01: HERO INTRO (WISEFOOD LEAF GREEN CANVAS #477651)
+   ========================================================================== */
+.hero-full-split {
+  display: grid;
+  grid-template-columns: minmax(320px, 45vw) 1fr;
+  width: 100%;
+  height: 100%;
+  gap: 0;
+}
+
+.hero-left-canvas {
+  background: var(--bg-green); /* Wisefood Leaf Green Canvas Block */
+  color: var(--text-light);
+  padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 3vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.giant-parallax-title {
+  font-family: var(--font-title);
+  font-size: clamp(4.2rem, 9vw, 8.5rem);
+  font-weight: 700;
+  line-height: 0.82;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  margin-left: -0.04em;
+  padding-left: 0;
+  will-change: transform, opacity;
+}
+
+.hero-left-sub {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  margin-left: 0;
+  padding-left: 0;
+  will-change: transform, opacity;
+}
+
+.hero-right-canvas {
+  background: var(--bg-cream);
+  padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 3vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.candidate-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.avatar-badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--bg-orange); /* Wisefood Red-Orange Badge */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.candidate-name {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge-role {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: rgba(216, 106, 62, 0.12);
+  color: var(--text-orange);
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+}
+
+.candidate-bio {
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.editorial-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  color: var(--text-dark);
+  border-left: 4px solid var(--bg-orange);
+  padding-left: 1.25rem;
+  margin: 1.25rem 0;
+  line-height: 1.45;
+}
+
+.presenter-box {
+  border-top: 2px solid var(--text-dark);
+  border-bottom: 1px solid var(--border-dark);
+  margin-top: 1.25rem;
+  padding: 0.4rem 0;
+}
+
+.presenter-header {
+  padding: 0.65rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.presenter-title {
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  font-weight: 800;
+  color: var(--text-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.presenter-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0;
+}
+
+.presenter-box.open .presenter-content {
+  max-height: 380px;
+  padding: 0.75rem 0;
+}
+
+.presenter-content ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.presenter-content li {
+  font-size: clamp(0.82rem, 0.95vw, 0.9rem);
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   PANELS: FLAWLESS SEAMLESS CANVAS
+   ========================================================================== */
+.motiv-full-split {
+  display: grid;
+  grid-template-columns: minmax(320px, 42vw) 1fr;
+  width: 100%;
+  height: 100vh;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-cream);
+  overflow: hidden;
+  touch-action: pan-x pan-y;
+}
+
+/* Parent container matching background for Panel 03 and Panel 05 */
+.panel:nth-child(3) .motiv-full-split,
+.panel:nth-child(5) .motiv-full-split {
+  background: var(--bg-green) !important;
+}
+
+.panel:nth-child(2) .motiv-full-split,
+.panel:nth-child(4) .motiv-full-split {
+  background: var(--bg-cream) !important;
+}
+
+.motiv-text-side {
+  width: 100%;
+  height: 100vh;
+  padding: clamp(1.8rem, 4vh, 3.5rem) clamp(1.25rem, 2.2vw, 3.2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-cream);
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.panel-red .motiv-text-side {
+  background: var(--bg-green);
+  color: #ffffff;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.editorial-category-tag {
+  display: block;
+  font-size: clamp(0.7rem, 0.85vw, 0.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-orange);
+  margin-bottom: 0.5rem;
+  will-change: transform, opacity;
+}
+
+.panel-red .editorial-category-tag {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.giant-section-label {
+  font-family: var(--font-title);
+  font-size: clamp(2.2rem, 4.2vw, 4.8rem);
+  font-weight: 700;
+  line-height: 0.88;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.85rem;
+  margin-left: -0.04em;
+  padding-left: 0;
+  word-break: normal;
+  white-space: normal;
+  will-change: transform, opacity;
+}
+
+.panel-red .giant-section-label { color: #ffffff; }
+
+.slogan-banner {
+  font-family: var(--font-title);
+  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-orange);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.02em;
+  will-change: transform, opacity;
+}
+
+.panel-red .slogan-banner { color: #ffffff; }
+
+.motiv-desc {
+  font-size: clamp(0.88rem, 1.05vw, 1.05rem);
+  color: var(--text-muted);
+  margin-bottom: 1.15rem;
+  max-width: 580px;
+  will-change: transform, opacity;
+}
+
+.panel-red .motiv-desc { color: rgba(255, 255, 255, 0.9); }
+
+.intent-box {
+  border-left: 4px solid var(--bg-orange);
+  padding: 0.85rem 0 0.85rem 0.85rem;
+  margin-top: 0.4rem;
+  max-width: 580px;
+  will-change: transform, opacity;
+}
+
+.panel-red .intent-box {
+  border-left-color: #ffffff;
+}
+
+.intent-header {
+  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-orange);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.panel-red .intent-header { color: #ffffff; }
+
+.intent-body {
+  font-size: clamp(0.82rem, 0.92vw, 0.92rem);
+  color: var(--text-dark);
+  line-height: 1.48;
+}
+
+.panel-red .intent-body { color: rgba(255, 255, 255, 0.95); }
+
+/* Download Actions Row */
+.download-actions-row {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: 50px;
+  font-size: clamp(0.7rem, 0.82vw, 0.78rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.dl-high {
+  background: var(--bg-orange);
+  color: #ffffff;
+}
+
+.dl-high:hover {
+  background: var(--text-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.dl-web {
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--text-dark);
+}
+
+.dl-web:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Panel Red Variant for Download Buttons */
+.panel-red .dl-high {
+  background: #ffffff;
+  color: var(--bg-green);
+}
+
+.panel-red .dl-high:hover {
+  background: var(--bg-orange);
+  color: #ffffff;
+}
+
+.panel-red .dl-web {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.panel-red .dl-web:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* PHOTO CONTAINER MATCHES BACKGROUND 100% WITH ZERO SEAMS OR STRIPES */
+.motiv-photo-side,
+.panel-red .motiv-photo-side {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Background Color Merging with Left Text Side */
+.panel:nth-child(2) .motiv-photo-side,
+.panel:nth-child(2) .parallax-window-wrap {
+  background: var(--bg-cream) !important;
+}
+
+.panel:nth-child(3) .motiv-photo-side,
+.panel:nth-child(3) .parallax-window-wrap {
+  background: var(--bg-green) !important;
+}
+
+.panel:nth-child(4) .motiv-photo-side,
+.panel:nth-child(4) .parallax-window-wrap {
+  background: var(--bg-cream) !important;
+}
+
+.panel:nth-child(5) .motiv-photo-side,
+.panel:nth-child(5) .parallax-window-wrap {
+  background: var(--bg-green) !important;
+}
+
+.parallax-window-wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* 100% UNCROPPED POSTER: ZERO OVERLAPPING ON TEXT */
+.inner-parallax-img {
+  max-width: 100%;
+  max-height: 100vh;
+  width: auto;
+  height: 100vh;
+  object-fit: contain;
+  object-position: right center;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.expand-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  border: none;
+  color: var(--text-dark);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+  z-index: 15;
+  transition: transform var(--transition-fast);
+}
+
+.expand-btn:hover {
+  transform: scale(1.15);
+  background: var(--bg-orange);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   PANEL 06: PROZESS & STRATEGIE (SWISS MINIMALIST REDESIGN)
+   ========================================================================== */
+.process-full-canvas {
+  width: 100%;
+  height: 100%;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 3vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-cream);
+  overflow-y: auto;
+}
+
+/* Swiss Minimalist 3-Column Thesis Layout */
+.swiss-thesis-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  margin: clamp(2rem, 4vh, 3.5rem) 0;
+  border-top: 2px solid var(--text-dark);
+  border-bottom: 2px solid var(--text-dark);
+  padding: clamp(1.5rem, 3vh, 3rem) 0;
+}
+
+.swiss-thesis-card {
+  border-right: 1px solid var(--border-dark);
+  padding-right: clamp(1rem, 1.8vw, 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.swiss-thesis-card:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.swiss-num {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-orange);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.swiss-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
+}
+
+.swiss-body {
+  font-size: clamp(0.88rem, 1vw, 1.02rem);
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.swiss-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.swiss-footer-brand {
+  font-family: var(--font-title);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.swiss-footer-date {
+  font-size: clamp(0.8rem, 0.95vw, 0.9rem);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   PANELS 04 & 05: FULL-BLEED BEHIND THE SCENES SHOWCASES
+   ========================================================================== */
+.bts-step-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.25rem 0 1.5rem 0;
+}
+
+.bts-pill-btn {
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  border-radius: 50px;
+  padding: 0.45rem 1rem;
+  font-size: clamp(0.75rem, 0.88vw, 0.85rem);
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.panel-red .bts-pill-btn {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.bts-pill-btn.active {
+  background: var(--bg-orange);
+  color: #ffffff;
+  border-color: var(--bg-orange);
+}
+
+.panel-red .bts-pill-btn.active {
+  background: #ffffff;
+  color: var(--bg-orange);
+  border-color: #ffffff;
+}
+
+.bts-info-block {
+  border-top: 1px solid var(--border-dark);
+  padding-top: 1rem;
+  margin-top: 0.75rem;
+}
+
+.panel-red .bts-info-block {
+  border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+.bts-info-block h4 {
+  font-family: var(--font-title);
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+}
+
+.panel-red .bts-info-block h4 { color: #ffffff; }
+
+.bts-info-block p {
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.panel-red .bts-info-block p { color: rgba(255, 255, 255, 0.9); }
+
+.prompt-card-full {
+  background: var(--bg-dark);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.prompt-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #888888;
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.prompt-card-full code {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  color: #00f5d4;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   TRUE 100% FULL-SCREEN CINEMATIC LIGHTBOX MODAL (HIGH Z-INDEX CLOSE BUTTON)
+   ========================================================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none; /* COMPLETELY HIDDEN WHEN NOT ACTIVE */
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 10, 9, 0.97);
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+  z-index: 3000;
+}
+
+.modal-content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  margin: 0;
+  z-index: 3001;
+  pointer-events: none;
+}
+
+.modal-content img {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  border-radius: 0;
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.8);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* HIGH-CONTRAST FLOATING CLOSE BUTTON OVERLAY ON TOP OF ALL LAYERS */
+.modal-close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  color: var(--text-dark);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  z-index: 3050; /* ALWAYS ON TOP OF IMAGE AND OVERLAY */
+  pointer-events: auto !important;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.15) rotate(90deg);
+  background: var(--bg-orange);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPONSIVE QUERIES FOR IPAD & TABLETS (1366px, 1024px, 834px, 768px)
+   ========================================================================== */
+@media (max-width: 1366px) {
+  .motiv-full-split {
+    grid-template-columns: minmax(320px, 46vw) 1fr;
+  }
+
+  .giant-section-label {
+    font-size: clamp(2rem, 3.8vw, 3.6rem);
+    letter-spacing: -0.04em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-full-split {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .motiv-full-split {
+    grid-template-columns: minmax(300px, 44vw) 1fr;
+  }
+
+  .giant-section-label {
+    font-size: clamp(1.8rem, 3.6vw, 3.2rem);
+    letter-spacing: -0.04em;
+  }
+
+  .swiss-thesis-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .swiss-thesis-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+    padding-right: 0;
+    padding-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 834px) {
+  :root {
+    --sidebar-width: 54px;
+  }
+
+  .hero-full-split, .motiv-full-split {
+    grid-template-columns: 1fr;
+  }
+
+  .motiv-photo-side {
+    display: none; /* Hide side photo on small phones, available via lightbox */
+  }
+
+  .motiv-text-side {
+    width: 100%;
+  }
+}
