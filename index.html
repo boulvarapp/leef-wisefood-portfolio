@@ -6,14 +6,16 @@
   <title>LEEF & wisefood | Visual Direction Portfolio — Dmitri</title>
   <meta name="description" content="Full-screen horizontal presentation portfolio for the Allrounder position in Photography & Graphic Design at LEEF Blattwerk / wisefood.">
   
-  <!-- PWA & Apple iPad Web App Meta Tags -->
+  <!-- PWA & Android / Apple Web App Meta Tags -->
   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#d86a3e">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="LEEF Portfolio">
   <link rel="apple-touch-icon" href="assets/images/photo/key_visual_photo_final.jpg">
 
-  <!-- Fonts: Oswald (Giant Condensed), Cormorant Garamond, Plus Jakarta Sans, Fira Code -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Fira+Code:wght@400;500&family=Oswald:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +23,7 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- GSAP, ScrollTrigger & ScrollTo -->
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
@@ -33,10 +35,9 @@
   <!-- Top Red Progress Bar -->
   <div class="scroll-progress-bar" id="scrollProgress"></div>
 
-  <!-- FIXED LEFT VERTICAL SIDEBAR WITH INTERACTIVE PAGE NAV & BOTTOM LANG SWITCHER -->
+  <!-- FIXED LEFT VERTICAL SIDEBAR -->
   <aside class="left-sidebar">
     <div class="sidebar-top">
-      <!-- Interactive Page Nav Dots (01 to 06) -->
       <div class="sidebar-page-nav" id="sidebarPageNav">
         <button class="page-nav-dot active" data-panel="0" title="01. Intro">01</button>
         <button class="page-nav-dot" data-panel="1" title="02. Fotografie">02</button>
@@ -46,13 +47,7 @@
         <button class="page-nav-dot" data-panel="5" title="06. Prozess">06</button>
       </div>
     </div>
-
-    <!-- Rotated Vertical Title -->
-    <div class="sidebar-mid">
-      LEEF × WISEFOOD • VISUAL DIRECTION 2026
-    </div>
-
-    <!-- Section Counter & Language Switcher at Bottom -->
+    <div class="sidebar-mid">LEEF × WISEFOOD • VISUAL DIRECTION 2026</div>
     <div class="sidebar-bottom">
       <div class="lang-switcher-sidebar">
         <button class="lang-btn-sm active" id="langDe" data-lang="de">DE</button>
@@ -62,30 +57,18 @@
     </div>
   </aside>
 
-  <!-- ==========================================================================
-       CANALS FULL-SCREEN FULL-BLEED HORIZONTAL TRACK (6 PANELS)
-       ========================================================================== -->
+  <!-- HORIZONTAL TRACK -->
   <div class="horizontal-outer-wrapper">
     <div class="horizontal-track" id="horizontalTrack">
 
-      <!-- ======================================================================
-           PANEL 01: HERO INTRO
-           ====================================================================== -->
+      <!-- PANEL 01: HERO -->
       <section class="panel" id="panel-01">
         <div class="hero-full-split">
-          
-          <!-- Left: Full-Bleed Vermilion Red Canvas -->
           <div class="hero-left-canvas">
             <h1 class="giant-parallax-title">LEEF.</h1>
-            <p class="hero-left-sub" data-i18n="hero_title_sub">
-              EIN KLEINER STROHHALM.<br>GROSSE WIRKUNG.
-            </p>
-            <p style="font-size: 0.95rem; margin-top: 1.25rem; color: rgba(255,255,255,0.88);" data-i18n="hero_subtitle">
-              Wie verwandelt man ein alltägliches Produkt in eine aufmerksamkeitsstarke Bildserie? Studio-Fotografie vs. KI-Artwork.
-            </p>
+            <p class="hero-left-sub" data-i18n="hero_title_sub">EIN KLEINER STROHHALM.<br>GROSSE WIRKUNG.</p>
+            <p style="font-size: 0.95rem; margin-top: 1.25rem; color: rgba(255,255,255,0.88);" data-i18n="hero_subtitle">Wie verwandelt man ein alltägliches Produkt in eine aufmerksamkeitsstarke Bildserie? Studio-Fotografie vs. KI-Artwork.</p>
           </div>
-
-          <!-- Right: Full-Bleed Cream Canvas -->
           <div class="hero-right-canvas">
             <div class="candidate-header">
               <div class="avatar-badge">D</div>
@@ -94,272 +77,160 @@
                 <p class="candidate-bio" data-i18n="profile_bio">Visual Lead & Senior Content Creator (10+ Jahre Erfahrung) • Produkt- & Food-Fotografie, KI-Art Direction</p>
               </div>
             </div>
-
-            <div class="editorial-quote" data-i18n="profile_quote">
-              «Nachhaltige Produkte müssen nicht belehrend wirken — sie verdienen ein stilvolles, lebendiges und erstklassiges visuelles Branding!»
-            </div>
-
-            <!-- Presenter Collapsible Box -->
+            <div class="editorial-quote" data-i18n="profile_quote">«Nachhaltige Produkte müssen nicht belehrend wirken — sie verdienen ein stilvolles, lebendiges und erstklassiges visuelles Branding!»</div>
             <div class="presenter-box">
               <div class="presenter-header" id="presenterToggle">
                 <span class="presenter-title" data-i18n="presenter_title"><i class="fa-solid fa-comments"></i> ⚡ Stichpunkte für das Gespräch (Klicken zum Öffnen)</span>
                 <i class="fa-solid fa-chevron-down" style="color: var(--bg-red);"></i>
               </div>
               <div class="presenter-content">
-                <ul id="presenterList">
-                  <!-- Dynamically translated via JS -->
-                </ul>
+                <ul id="presenterList"></ul>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
-      <!-- ======================================================================
-           PANEL 02: MOTIV 01 — FOTOGRAFIE
-           ====================================================================== -->
+      <!-- PANEL 02: FOTOGRAFIE -->
       <section class="panel" id="panel-02">
         <div class="motiv-full-split">
-          
-          <!-- Left Text & Intent Canvas -->
           <div class="motiv-text-side">
             <span class="editorial-category-tag" data-i18n="cat_tag_01">MOTIV 01: KEY VISUAL FOTOGRAFIE</span>
             <h2 class="giant-section-label" data-i18n="photo_headline">FOTOGRAFIE</h2>
             <div class="slogan-banner" data-i18n="val_slogan_photo">«AUS DER NATUR. FÜR DIE NATUR.»</div>
-            <p class="motiv-desc" data-i18n="photo_desc">
-              Ein künstlerisches Öko-Manifest für LEEF & wisefood, das Papier-Strohhalme kreativ mit frischen Wiesenblumen kombiniert, um die reine natürliche Herkunft zu zelebrieren.
-            </p>
-
-            <!-- Intent Explanation Box -->
+            <p class="motiv-desc" data-i18n="photo_desc">Ein künstlerisches Öko-Manifest für LEEF & wisefood, das Papier-Strohhalme kreativ mit frischen Wiesenblumen kombiniert, um die reine natürliche Herkunft zu zelebrieren.</p>
             <div class="intent-box">
               <div class="intent-header" data-i18n="photo_intent_title"><i class="fa-solid fa-bullseye"></i> WAS ICH ERREICHEN WOLLTE</div>
-              <div class="intent-body" data-i18n="photo_intent_desc">
-                Ziel war es, die organische Herkunft des Produkts ohne Greenwashing-Klischees zu zeigen. Durch die kunstvolle Kombination von Papier-Strohhalmen mit Wiesenblumen entsteht eine mitreißende Metapher für biologische Abbaubarkeit, die ein Alltags-Produkt in ein aufmerksamkeitsstarkes Kampagnenobjekt verwandelt.
-              </div>
-
-              <!-- Download Action Buttons -->
+              <div class="intent-body" data-i18n="photo_intent_desc">Ziel war es, die organische Herkunft des Produkts ohne Greenwashing-Klischees zu zeigen.</div>
               <div class="download-actions-row">
-                <a href="assets/downloads/high_res/motiv_01_photo_highres.png" download id="dlHighPhoto" class="dl-btn dl-high" data-i18n="dl_high_photo">
-                  <i class="fa-solid fa-download"></i> Hohe Auflösung (Druck 300 DPI)
-                </a>
-                <a href="assets/downloads/web_res/motiv_01_photo_web.png" download id="dlWebPhoto" class="dl-btn dl-web" data-i18n="dl_web_photo">
-                  <i class="fa-solid fa-file-image"></i> Web-Auflösung (Social / Web)
-                </a>
+                <a href="assets/downloads/high_res/motiv_01_photo_highres.png" download id="dlHighPhoto" class="dl-btn dl-high" data-i18n="dl_high_photo"><i class="fa-solid fa-download"></i> Hohe Auflösung (Druck 300 DPI)</a>
+                <a href="assets/downloads/web_res/motiv_01_photo_web.png" download id="dlWebPhoto" class="dl-btn dl-web" data-i18n="dl_web_photo"><i class="fa-solid fa-file-image"></i> Web-Auflösung (Social / Web)</a>
               </div>
             </div>
           </div>
-
-          <!-- Right Full Uncropped Fit-Contain Photo -->
           <div class="motiv-photo-side parallax-window-wrap">
-            <button class="expand-btn modal-trigger" data-img="assets/images/photo/key_visual_photo_final.jpg" title="Vollbild">
-              <i class="fa-solid fa-expand"></i>
-            </button>
+            <button class="expand-btn modal-trigger" data-img="assets/images/photo/key_visual_photo_final.jpg" title="Vollbild"><i class="fa-solid fa-expand"></i></button>
             <img src="assets/images/photo/key_visual_photo_final.jpg" alt="AUS DER NATUR. FÜR DIE NATUR. - Key Visual Photo" class="modal-trigger inner-parallax-img" data-img="assets/images/photo/key_visual_photo_final.jpg">
           </div>
-
         </div>
       </section>
 
-      <!-- ======================================================================
-           PANEL 03: MOTIV 02 — KI-ARTWORK
-           ====================================================================== -->
+      <!-- PANEL 03: KI-ARTWORK -->
       <section class="panel panel-red" id="panel-03">
         <div class="motiv-full-split">
-          
-          <!-- Left Text & Intent Canvas -->
           <div class="motiv-text-side">
             <span class="editorial-category-tag" data-i18n="cat_tag_02">MOTIV 02: KOMMERZIELLES B2B VISUAL</span>
             <h2 class="giant-section-label" data-i18n="ai_headline">KI-ARTWORK</h2>
             <div class="slogan-banner" data-i18n="val_slogan_ai">«STARK IM GLAS. GUT FÜR DIE WELT.»</div>
-            <p class="motiv-desc" data-i18n="ai_desc">
-              Ein kommerzielles B2B-Visual, das LEEF Papier-Strohhalme in einem realen Bar-Ambiente zeigt. Generiert mit KI und veredelt in Photoshop für einen authentischen fotografischen Look ohne typische KI-Artefakte.
-            </p>
-
-            <!-- Intent Explanation Box -->
+            <p class="motiv-desc" data-i18n="ai_desc">Ein kommerzielles B2B-Visual, das LEEF Papier-Strohhalme in einem realen Bar-Ambiente zeigt.</p>
             <div class="intent-box">
               <div class="intent-header" data-i18n="ai_intent_title"><i class="fa-solid fa-bullseye"></i> WAS ICH ERREICHEN WOLLTE</div>
-              <div class="intent-body" data-i18n="ai_intent_desc">
-                Ziel war es zu zeigen, wie stilvoll und natürlich Papier-Strohhalme in modernen Cafés und Bars wirken. Durch sorgfältiges Verfeinern des KI-Outputs mit realistischer Beleuchtung, Filmkorn und Marken-Details wirkt das Visual wie ein echtes Lifestyle-Foto statt eines synthetischen Renders.
-              </div>
-
-              <!-- Download Action Buttons -->
+              <div class="intent-body" data-i18n="ai_intent_desc">Ziel war es zu zeigen, wie stilvoll und natürlich Papier-Strohhalme in modernen Cafés und Bars wirken.</div>
               <div class="download-actions-row">
-                <a href="assets/downloads/high_res/motiv_02_ai_highres.png" download id="dlHighAi" class="dl-btn dl-high" data-i18n="dl_high_ai">
-                  <i class="fa-solid fa-download"></i> Hohe Auflösung (Druck 300 DPI)
-                </a>
-                <a href="assets/downloads/web_res/motiv_02_ai_web.png" download id="dlWebAi" class="dl-btn dl-web" data-i18n="dl_web_ai">
-                  <i class="fa-solid fa-file-image"></i> Web-Auflösung (Social / Web)
-                </a>
+                <a href="assets/downloads/high_res/motiv_02_ai_highres.png" download id="dlHighAi" class="dl-btn dl-high" data-i18n="dl_high_ai"><i class="fa-solid fa-download"></i> Hohe Auflösung (Druck 300 DPI)</a>
+                <a href="assets/downloads/web_res/motiv_02_ai_web.png" download id="dlWebAi" class="dl-btn dl-web" data-i18n="dl_web_ai"><i class="fa-solid fa-file-image"></i> Web-Auflösung (Social / Web)</a>
               </div>
             </div>
           </div>
-
-          <!-- Right Full Uncropped Fit-Contain Photo -->
           <div class="motiv-photo-side parallax-window-wrap">
-            <button class="expand-btn modal-trigger" data-img="assets/images/ai/key_visual_ai_final.jpg" title="Vollbild">
-              <i class="fa-solid fa-expand"></i>
-            </button>
+            <button class="expand-btn modal-trigger" data-img="assets/images/ai/key_visual_ai_final.jpg" title="Vollbild"><i class="fa-solid fa-expand"></i></button>
             <img src="assets/images/ai/key_visual_ai_final.jpg" alt="STARK IM GLAS. GUT FÜR DIE WELT. - Key Visual AI" class="modal-trigger inner-parallax-img" data-img="assets/images/ai/key_visual_ai_final.jpg">
           </div>
-
         </div>
       </section>
 
-      <!-- ======================================================================
-           PANEL 04: FULL-BLEED BTS — STUDIO FOTOGRAFIE
-           ====================================================================== -->
+      <!-- PANEL 04: BTS FOTO -->
       <section class="panel" id="panel-04">
         <div class="motiv-full-split">
-          
-          <!-- Left Text & Pill Step Tabs -->
           <div class="motiv-text-side">
             <span class="editorial-category-tag" data-i18n="cat_tag_03">HINTER DEN KULISSEN: STUDIO-FOTOGRAFIE</span>
             <h2 class="giant-section-label" style="font-size: clamp(2rem, 3.8vw, 3.5rem);" data-i18n="bts_photo_title">FELD-SOURCING & STUDIO</h2>
             <p class="motiv-desc" data-i18n="bts_photo_subtitle">Vom Spaziergang auf der Wiese bis zum gerichteten Studio-Licht:</p>
-
             <div class="bts-step-pills">
-              <button class="bts-pill-btn active" data-photo="bts_meadow">
-                <span>01</span> <span data-i18n="tab_p1">Wiese 🌾</span>
-              </button>
-              <button class="bts-pill-btn" data-photo="bts_rig">
-                <span>02</span> <span data-i18n="tab_p2">Studio 📸</span>
-              </button>
-              <button class="bts-pill-btn" data-photo="macro_test1">
-                <span>03</span> <span data-i18n="tab_p3">Makro A 🔍</span>
-              </button>
-              <button class="bts-pill-btn" data-photo="macro_test2">
-                <span>04</span> <span data-i18n="tab_p4">Makro B 🌸</span>
-              </button>
-              <button class="bts-pill-btn" data-photo="raw_bouquet">
-                <span>05</span> <span data-i18n="tab_p5">Installation 💐</span>
-              </button>
+              <button class="bts-pill-btn active" data-photo="bts_meadow"><span>01</span> <span data-i18n="tab_p1">Wiese 🌾</span></button>
+              <button class="bts-pill-btn" data-photo="bts_rig"><span>02</span> <span data-i18n="tab_p2">Studio 📸</span></button>
+              <button class="bts-pill-btn" data-photo="macro_test1"><span>03</span> <span data-i18n="tab_p3">Makro A 🔍</span></button>
+              <button class="bts-pill-btn" data-photo="macro_test2"><span>04</span> <span data-i18n="tab_p4">Makro B 🌸</span></button>
+              <button class="bts-pill-btn" data-photo="raw_bouquet"><span>05</span> <span data-i18n="tab_p5">Installation 💐</span></button>
             </div>
-
             <div class="bts-info-block">
               <h4 id="photoBtsTitle">Schritt 1: Blumen-Sourcing auf der Wiese 🌾</h4>
-              <p id="photoBtsDesc">Sammeln von frischem Hahnenfuss, Klee und Wegwarte beim Spaziergang mit dem Hund 🐕. Echte botanische Elemente direkt aus der Natur!</p>
+              <p id="photoBtsDesc">Sammeln von frischem Hahnenfuss, Klee und Wegwarte beim Spaziergang mit dem Hund 🐕.</p>
             </div>
           </div>
-
-          <!-- Right Full Uncropped Fit-Contain BTS Photo -->
           <div class="motiv-photo-side parallax-window-wrap">
-            <button class="expand-btn modal-trigger" id="photoBtsModalBtn" data-img="assets/images/photo/bts_meadow_walk.jpg" title="Vollbild">
-              <i class="fa-solid fa-expand"></i>
-            </button>
+            <button class="expand-btn modal-trigger" id="photoBtsModalBtn" data-img="assets/images/photo/bts_meadow_walk.jpg" title="Vollbild"><i class="fa-solid fa-expand"></i></button>
             <img src="assets/images/photo/bts_meadow_walk.jpg" alt="Meadow Walk Sourcing" id="photoBtsImg" class="modal-trigger inner-parallax-img" data-img="assets/images/photo/bts_meadow_walk.jpg">
           </div>
-
         </div>
       </section>
 
-      <!-- ======================================================================
-           PANEL 05: FULL-BLEED BTS — KI & PHOTOSHOP TIMELINE
-           ====================================================================== -->
+      <!-- PANEL 05: BTS KI -->
       <section class="panel panel-red" id="panel-05">
         <div class="motiv-full-split">
-          
-          <!-- Left Text, Prompt Spec & Stage Tabs -->
           <div class="motiv-text-side">
             <span class="editorial-category-tag" data-i18n="cat_tag_04">HINTER DEN KULISSEN: KI & PHOTOSHOP ZEITLEISTE</span>
             <h2 class="giant-section-label" style="font-size: clamp(2rem, 3.8vw, 3.5rem);" data-i18n="ai_timeline_title">KI & PHOTOSHOP</h2>
-
-            <!-- Prompt Specification Box -->
             <div class="prompt-card-full">
               <div class="prompt-card-header">
                 <span data-i18n="prompt_header_label">PROMPT-SPEZIFIKATION</span>
                 <button class="copy-btn" id="copyPromptBtn">COPY</button>
               </div>
-              <code id="promptCode">Commercial editorial photography, front shot of two vibrant summer drinks with striped paper straws on a wooden bar table. A hand reaching for one of the drinks. Minimalist interior with a muted sage-green tiled wall background, pastel colour palette, Wes Anderson aesthetic. In the soft blurred background, exactly one single craft paper bag sitting on a shelf. Slightly asymmetrical, candid everyday life moment, a few small condensation water droplets on the wooden bar counter. Soft lighting, vibrant drink colours, gentle highlights, photorealistic, cinematic 1970s magazine look. 35mm film photography shot on Leica M6, Kodak Portra 400 film grain, subtle halation, warm organic tones. Natural slight imperfections, soft focus falloff, Soft cinematic bloom in the highlights --ar 4:5 </code>
+              <code id="promptCode">Commercial editorial photography, front shot of two vibrant summer drinks with striped paper straws on a wooden bar table. A hand reaching for one of the drinks. Minimalist interior with a muted sage-green tiled wall background, pastel colour palette, Wes Anderson aesthetic. In the soft blurred background, exactly one single craft paper bag sitting on a shelf. Slightly asymmetrical, candid everyday life moment, a few small condensation water droplets on the wooden bar counter. Soft lighting, vibrant drink colours, gentle highlights, photorealistic, cinematic 1970s magazine look. 35mm film photography shot on Leica M6, Kodak Portra 400 film grain, subtle halation, warm organic tones. Natural slight imperfections, soft focus falloff, Soft cinematic bloom in the highlights --ar 4:5</code>
             </div>
-
             <div class="bts-step-pills">
-              <button class="bts-pill-btn active" data-stage="step1">
-                <span>01</span> <span data-i18n="tab_a1">Render</span>
-              </button>
-              <button class="bts-pill-btn" data-stage="step2">
-                <span>02</span> <span data-i18n="tab_a2">Bar-Set</span>
-              </button>
-              <button class="bts-pill-btn" data-stage="step3">
-                <span>03</span> <span data-i18n="tab_a3">Branding</span>
-              </button>
-              <button class="bts-pill-btn" data-stage="step4">
-                <span>04</span> <span data-i18n="tab_a4">Layout</span>
-              </button>
+              <button class="bts-pill-btn active" data-stage="step1"><span>01</span> <span data-i18n="tab_a1">Render</span></button>
+              <button class="bts-pill-btn" data-stage="step2"><span>02</span> <span data-i18n="tab_a2">Bar-Set</span></button>
+              <button class="bts-pill-btn" data-stage="step3"><span>03</span> <span data-i18n="tab_a3">Branding</span></button>
+              <button class="bts-pill-btn" data-stage="step4"><span>04</span> <span data-i18n="tab_a4">Layout</span></button>
             </div>
-
             <div class="bts-info-block">
               <h4 id="stageTitle">Schritt 1: KI-Basisgenerierung</h4>
-              <p id="stageDesc">Generierung der Szenerie mit Fokus auf natürliche Beleuchtung, salbeigrünen Fliesen-Hintergrund und realistische Strohhalm-Platzierung.</p>
+              <p id="stageDesc">Generierung der Szenerie mit Fokus auf natürliche Beleuchtung.</p>
             </div>
           </div>
-
-          <!-- Right Full Uncropped Fit-Contain AI Stage Photo -->
           <div class="motiv-photo-side parallax-window-wrap">
-            <button class="expand-btn modal-trigger" id="stageModalBtn" data-img="assets/images/ai/step1_raw_gen.jpg" title="Vollbild">
-              <i class="fa-solid fa-expand"></i>
-            </button>
+            <button class="expand-btn modal-trigger" id="stageModalBtn" data-img="assets/images/ai/step1_raw_gen.jpg" title="Vollbild"><i class="fa-solid fa-expand"></i></button>
             <img src="assets/images/ai/step1_raw_gen.jpg" alt="Stage 1: Raw AI Generation" id="stagePreviewImg" class="modal-trigger inner-parallax-img" data-img="assets/images/ai/step1_raw_gen.jpg">
           </div>
-
         </div>
       </section>
 
-      <!-- ======================================================================
-           PANEL 06: PROCESS & STRATEGY
-           ====================================================================== -->
+      <!-- PANEL 06: PROCESS -->
       <section class="panel" id="panel-06">
         <div class="process-full-canvas">
-          
           <div>
             <h2 class="giant-section-label" style="font-size: clamp(2rem, 3.8vw, 3.5rem); margin-bottom: 0.5rem;" data-i18n="process_headline">PROZESS & STRATEGIE</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted);" data-i18n="matrix_subtitle">
-              Als Allrounder verbinde ich die Effizienzpotenziale von KI mit der Unersetzbarkeit von echter Fotografie.
-            </p>
+            <p style="font-size: 1.1rem; color: var(--text-muted);" data-i18n="matrix_subtitle">Als Allrounder verbinde ich die Effizienzpotenziale von KI mit der Unersetzbarkeit von echter Fotografie.</p>
           </div>
-
-          <!-- Swiss 3 Thesis Cards -->
           <div class="swiss-thesis-row">
-            
             <div class="swiss-thesis-card">
               <span class="swiss-num">01</span>
               <h3 class="swiss-title" data-i18n="t1_head">HYBRID WORKFLOW</h3>
-              <p class="swiss-body" data-i18n="t1_body">
-                Fotografie liefert 100% haptische Präzision der Textur, KI bietet unendliche Geschwindigkeit bei der Konzept-Exploration und dem B2B-Kontext.
-              </p>
+              <p class="swiss-body" data-i18n="t1_body">Fotografie liefert 100% haptische Präzision der Textur, KI bietet unendliche Geschwindigkeit bei der Konzept-Exploration und dem B2B-Kontext.</p>
             </div>
-
             <div class="swiss-thesis-card">
               <span class="swiss-num">02</span>
               <h3 class="swiss-title" data-i18n="t2_head">COMMERCIAL FOCUS</h3>
-              <p class="swiss-body" data-i18n="t2_body">
-                Jedes Visual löst eine klare Business-Aufgabe: vom Öko-Manifest der Marke bis zur nahtlosen Integration in moderne Cafés und Bars.
-              </p>
+              <p class="swiss-body" data-i18n="t2_body">Jedes Visual löst eine klare Business-Aufgabe: vom Öko-Manifest der Marke bis zur nahtlosen Integration in moderne Cafés und Bars.</p>
             </div>
-
             <div class="swiss-thesis-card">
               <span class="swiss-num">03</span>
               <h3 class="swiss-title" data-i18n="t3_head">FULL-CYCLE EXECUTION</h3>
-              <p class="swiss-body" data-i18n="t3_body">
-                Abdeckung des gesamten Zyklus: vom Blumen-Sourcing auf der Wiese und Studio-Licht-Setup bis hin zu Prompting und finalem Layout.
-              </p>
+              <p class="swiss-body" data-i18n="t3_body">Abdeckung des gesamten Zyklus: vom Blumen-Sourcing auf der Wiese und Studio-Licht-Setup bis hin zu Prompting und finalem Layout.</p>
             </div>
-
           </div>
-
-          <!-- Clean Footer Disclaimer -->
           <div class="swiss-footer">
             <span class="swiss-footer-brand">LEEF × WISEFOOD</span>
             <span class="swiss-footer-date" data-i18n="footer_badge">LEEF × WISEFOOD • Termin: 3. August 2026</span>
           </div>
-
         </div>
       </section>
 
     </div>
   </div>
 
-  <!-- Lightbox Modal for High-Res Inspection -->
+  <!-- Lightbox Modal -->
   <div class="modal" id="imageModal">
     <div class="modal-overlay" id="modalOverlay"></div>
     <div class="modal-content">
