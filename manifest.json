@@ -1,0 +1,18 @@
+{
+  "name": "LEEF × wisefood — Visual Direction Portfolio",
+  "short_name": "LEEF Portfolio",
+  "description": "Full-screen presentation portfolio for LEEF & wisefood by Dmitri",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f5f0",
+  "theme_color": "#d86a3e",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/images/photo/key_visual_photo_final.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
